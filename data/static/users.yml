@@ -269,7 +269,7 @@
     answer: "Used Emporium"
 -
   email: testing
-  password: 'IamUsedForTesting'
+  password: 'S3cureT3stingPwd#2026'
   key: LetUsTest
   role: 'admin'
 -

@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
   public oauthUnavailable = true
   public redirectUri = ''
   public testingUsername = 'testing@juice-sh.op'
-  public testingPassword = 'IamUsedForTesting'
+  public testingPassword = 'S3cureT3stingPwd#2026'
 
   ngOnInit (): void {
     const email = localStorage.getItem('email')

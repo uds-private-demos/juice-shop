@@ -179,7 +179,7 @@ describe('/#/login', () => {
       cy.task<string>('GetFromConfig', 'application.domain').then(
         (appDomain: string) => {
           cy.get('#email').type(`testing@${appDomain}`)
-          cy.get('#password').type('IamUsedForTesting')
+          cy.get('#password').type('S3cureT3stingPwd#2026')
           cy.get('#loginButton').click()
         }
       )
