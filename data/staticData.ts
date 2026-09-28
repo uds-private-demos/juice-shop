@@ -16,6 +16,7 @@ export interface StaticUser {
   password: string
   key: string
   role: 'admin' | 'customer' | 'deluxe' | 'accounting'
+  randomizePassword?: boolean
 
   username?: string
   profileImage?: string

@@ -62,7 +62,7 @@ describe('/#/login', () => {
   })
 
   describe('challenge "loginSupportChallenge"', () => {
-    it('should be able to log in with original support-team credentials', () => {
+    it('should reject the shipped support-team credentials', () => {
       cy.task<string>('GetFromConfig', 'application.domain').then(
         (appDomain: string) => {
           cy.get('#email').type(`support@${appDomain}`)
@@ -70,7 +70,7 @@ describe('/#/login', () => {
           cy.get('#loginButton').click()
         }
       )
-      cy.expectChallengeSolved({ challenge: 'Login Support Team' })
+      cy.contains('Invalid email or password.')
     })
   })
 
