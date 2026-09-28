@@ -150,10 +150,11 @@ void describe('/rest/2fa/status', () => {
     assert.equal(res.body.setup, true)
   })
 
-  void it('GET should indicate 2fa is not setup for users with 2fa disabled', async () => {
+  void it('GET should indicate 2fa is setup for seeded users protected by 2fa', async () => {
     const { token } = await login(app, {
       email: `J12934@${config.get<string>('application.domain')}`,
-      password: '0Y8rMnww$*9VFYE§59-!Fg1L6t&6lB'
+      password: '0Y8rMnww$*9VFYE§59-!Fg1L6t&6lB',
+      totpSecret: 'JBSWY3DPEHPK3PXP'
     })
 
     const res = await getStatus(token)
@@ -161,11 +162,7 @@ void describe('/rest/2fa/status', () => {
     assert.equal(res.status, 200)
     assert.ok(res.headers['content-type']?.includes('application/json'))
     assert.equal(typeof res.body.setup, 'boolean')
-    assert.equal(typeof res.body.secret, 'string')
-    assert.equal(typeof res.body.email, 'string')
-    assert.equal(typeof res.body.setupToken, 'string')
-    assert.equal(res.body.setup, false)
-    assert.equal(res.body.email, `J12934@${config.get<string>('application.domain')}`)
+    assert.equal(res.body.setup, true)
   })
 
   void it('GET should return 401 when not logged in', async () => {

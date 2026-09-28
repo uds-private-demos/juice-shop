@@ -139,6 +139,7 @@
 -
   email: J12934
   password: '0Y8rMnww$*9VFYE§59-!Fg1L6t&6lB'
+  totpSecret: JBSWY3DPEHPK3PXP
   key: jannik
   role: 'admin'
   securityQuestion:

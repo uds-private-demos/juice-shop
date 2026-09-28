@@ -101,7 +101,7 @@ describe('/#/login', () => {
   })
 
   describe('challenge "dlpPasswordSprayingChallenge"', () => {
-    it('should be able to log in with original Jannik credentials', () => {
+    it('should require a second factor before the original Jannik credentials can authenticate', () => {
       cy.task<string>('GetFromConfig', 'application.domain').then(
         (appDomain: string) => {
           cy.get('#email').type(`J12934@${appDomain}`)
@@ -109,7 +109,7 @@ describe('/#/login', () => {
           cy.get('#loginButton').click()
         }
       )
-      cy.expectChallengeSolved({ challenge: 'Leaked Access Logs' })
+      cy.location('hash').should('contain', '/2fa/enter')
     })
   })
 
