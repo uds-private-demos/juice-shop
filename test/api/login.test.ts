@@ -81,7 +81,7 @@ void describe('/rest/user/login', () => {
     assert.equal(typeof res.body.authentication.token, 'string')
   })
 
-  void it('POST login with support-team credentials', async () => {
+  void it('POST login with shipped support-team credentials is rejected', async () => {
     const res = await request(app)
       .post('/rest/user/login')
       .set({ 'content-type': 'application/json' })
@@ -90,9 +90,7 @@ void describe('/rest/user/login', () => {
         password: 'J6aVjTgOpRs@?5l!Zkq2AYnCE@RF$P'
       })
 
-    assert.equal(res.status, 200)
-    assert.ok(res.headers['content-type']?.includes('application/json'))
-    assert.equal(typeof res.body.authentication.token, 'string')
+    assert.equal(res.status, 401)
   })
 
   void it('POST login with MC SafeSearch credentials', async () => {
