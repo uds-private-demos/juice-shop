@@ -73,7 +73,7 @@ void describe('/rest/user/login', () => {
       .set({ 'content-type': 'application/json' })
       .send({
         email: 'admin@' + config.get<string>('application.domain'),
-        password: 'admin123'
+        password: 'A7dm!n-bootstrap-rotate-me-now-2026'
       })
 
     assert.equal(res.status, 200)

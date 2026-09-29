@@ -178,7 +178,7 @@ void describe('/rest/basket/:id/checkout', () => {
     })
 
     void it('should return 500 if WalletModel.findOne fails during checkout', async (t) => {
-      const { token } = await login(app, { email: 'admin@' + config.get<string>('application.domain'), password: 'admin123' })
+      const { token } = await login(app, { email: 'admin@' + config.get<string>('application.domain'), password: 'A7dm!n-bootstrap-rotate-me-now-2026' })
       const adminAuthHeader = { Authorization: 'Bearer ' + token, 'content-type': 'application/json' }
       await request(app).post('/api/BasketItems').set(adminAuthHeader).send({ BasketId: 1, ProductId: 1, quantity: 1 })
       t.mock.method(WalletModel, 'findOne', () => { throw new Error('Wallet error') })
@@ -189,7 +189,7 @@ void describe('/rest/basket/:id/checkout', () => {
     })
 
     void it('should return 500 if ordersCollection.insert fails during checkout', async (t) => {
-      const { token } = await login(app, { email: 'admin@' + config.get<string>('application.domain'), password: 'admin123' })
+      const { token } = await login(app, { email: 'admin@' + config.get<string>('application.domain'), password: 'A7dm!n-bootstrap-rotate-me-now-2026' })
       const authHeader = { Authorization: 'Bearer ' + token, 'content-type': 'application/json' }
       await request(app).post('/api/BasketItems').set(authHeader).send({ BasketId: 1, ProductId: 1, quantity: 1 })
 
