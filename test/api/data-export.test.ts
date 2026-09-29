@@ -318,7 +318,7 @@ void describe('/rest/user/data-export', () => {
   void describe('error cases', () => {
     void it('should return 500 if MemoryModel.findAll fails', async (t) => {
       const adminEmail = 'admin@' + config.get<string>('application.domain')
-      const { token } = await login(app, { email: adminEmail, password: 'admin123' })
+      const { token } = await login(app, { email: adminEmail, password: 'A7dm!n-bootstrap-rotate-me-now-2026' })
       const authHeader = { Authorization: 'Bearer ' + token, 'content-type': 'application/json' }
 
       const originalFindAll = MemoryModel.findAll
@@ -340,7 +340,7 @@ void describe('/rest/user/data-export', () => {
 
     void it('should return 500 if ordersCollection.find fails', async (t) => {
       const adminEmail = 'admin@' + config.get<string>('application.domain')
-      const { token } = await login(app, { email: adminEmail, password: 'admin123' })
+      const { token } = await login(app, { email: adminEmail, password: 'A7dm!n-bootstrap-rotate-me-now-2026' })
       const authHeader = { Authorization: 'Bearer ' + token, 'content-type': 'application/json' }
       t.mock.method(db.ordersCollection, 'find', async () => { throw new Error('Orders error') })
 
@@ -355,7 +355,7 @@ void describe('/rest/user/data-export', () => {
 
     void it('should return 500 if reviewsCollection.find fails', async (t) => {
       const adminEmail = 'admin@' + config.get<string>('application.domain')
-      const { token } = await login(app, { email: adminEmail, password: 'admin123' })
+      const { token } = await login(app, { email: adminEmail, password: 'A7dm!n-bootstrap-rotate-me-now-2026' })
       const authHeader = { Authorization: 'Bearer ' + token, 'content-type': 'application/json' }
       t.mock.method(db.reviewsCollection, 'find', async () => { throw new Error('Reviews error') })
 
